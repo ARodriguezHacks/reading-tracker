@@ -1,12 +1,13 @@
 import React from "react";
 import Home from "./components/Home";
+import Container from "@material-ui/core/Container";
 
 function App() {
   return (
-    <div>
+    <Container maxWidth="sm">
       <h1>Reading List and Tracker</h1>
       <Home />
-    </div>
+    </Container>
   );
 }
 

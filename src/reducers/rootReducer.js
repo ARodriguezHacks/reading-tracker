@@ -9,7 +9,16 @@ const rootReducer = (state = initState, action) => {
       ...state,
       books: newBooks,
     };
+  } else if (action.type === "OPEN_ADD_BOOK_MODAL") {
+    console.log(state);
+    let bookModal = state.addBookModal;
+    return {
+      ...state,
+      addBookModal: !bookModal,
+    };
+    //console.log(state);
   }
+  //console.log(state);
   return state;
 };
 
