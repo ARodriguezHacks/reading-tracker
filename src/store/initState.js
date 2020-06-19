@@ -1,5 +1,9 @@
 const initState = {
   addBookModal: false,
+  addBook: {
+    title: "",
+    author: "",
+  },
   books: [
     {
       id: "1",

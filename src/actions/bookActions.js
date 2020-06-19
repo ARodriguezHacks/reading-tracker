@@ -12,4 +12,11 @@ const openAddBookModal = () => {
   };
 };
 
-export { deleteBook, openAddBookModal };
+const addBook = (payload) => {
+  return {
+    type: "ADD_BOOK",
+    payload,
+  };
+};
+
+export { deleteBook, openAddBookModal, addBook };
