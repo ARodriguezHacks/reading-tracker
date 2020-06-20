@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
     addBook: state.addBook,
   };
 };
-
+// Takes in the dispatch method so that we can then call it. Then whatever property we want to add to the component's props, we'll add inside the return object. In this case that property will be addBook
 const mapDispatchToProps = (dispatch) => {
   return {
     addBook: (book) => {
