@@ -4,19 +4,38 @@ import { connect } from "react-redux";
 import { addBook } from "../actions/bookActions";
 
 class AddBookModal extends Component {
-  handleSubmit = () => {
-    this.props.addBook(this.props.book.title, this.props.book.author);
+  state = {
+    title: "",
+    author: "",
   };
 
-  handleChange = () => {};
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    this.props.addBook(this.state);
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
+  };
 
   render() {
     return (
       <form onClick={this.handleSubmit}>
-        <label>Title</label>
-        <Input placeholder="Book Title" value={} onChange={} />
-        <label>Author</label>
-        <Input placeholder="Book Author" value={} onChange={} />
+        <label htmlFor="title">Title</label>
+        <Input
+          placeholder="Book Title"
+          id="title"
+          onChange={this.handleChange}
+        />
+        <label htmlFor="author">Author</label>
+        <Input
+          placeholder="Book Author"
+          id="author"
+          onChange={this.handleChange}
+        />
         <button type="submit">Add</button>
       </form>
     );
@@ -31,10 +50,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addBook: (title, author) => {
-      dispatch(addBook(title, author));
+    addBook: (book) => {
+      dispatch(addBook(book));
     },
   };
 };
 
-export default AddBookModal;
+export default connect(null, mapDispatchToProps)(AddBookModal);

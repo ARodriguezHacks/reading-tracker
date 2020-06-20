@@ -13,9 +13,9 @@ const openAddBookModal = () => {
 };
 
 const addBook = (payload) => {
-  return {
-    type: "ADD_BOOK",
-    payload,
+  return (dispatch, getState) => {
+    // make async call to database
+    dispatch({ type: "ADD_BOOK", payload });
   };
 };
 

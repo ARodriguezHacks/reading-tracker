@@ -10,17 +10,18 @@ const rootReducer = (state = initState, action) => {
       books: newBooks,
     };
   } else if (action.type === "OPEN_ADD_BOOK_MODAL") {
-    console.log(state);
+    //console.log(state);
     let bookModal = state.addBookModal;
     return {
       ...state,
       addBookModal: !bookModal,
     };
   } else if (action.type === "ADD_BOOK") {
-    return {
-      ...state,
-      books: [...state.books, action.payload],
-    };
+    console.log("added book", action.payload);
+    // return {
+    //   ...state,
+    //   books: [...state.books, action.payload],
+    // };
   }
   //console.log(state);
   return state;
