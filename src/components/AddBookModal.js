@@ -23,30 +23,34 @@ class AddBookModal extends Component {
 
   render() {
     return (
-      <form onClick={this.handleSubmit}>
+      <form>
         <label htmlFor="title">Title</label>
         <Input
+          type="text"
           placeholder="Book Title"
           id="title"
           onChange={this.handleChange}
         />
         <label htmlFor="author">Author</label>
         <Input
+          type="text"
           placeholder="Book Author"
           id="author"
           onChange={this.handleChange}
         />
-        <button type="submit">Add</button>
+        <button type="submit" onClick={this.handleSubmit}>
+          Add
+        </button>
       </form>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    addBook: state.addBook,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     addBook: state.addBook,
+//   };
+// };
 // Takes in the dispatch method so that we can then call it. Then whatever property we want to add to the component's props, we'll add inside the return object. In this case that property will be addBook
 const mapDispatchToProps = (dispatch) => {
   return {

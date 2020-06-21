@@ -17,14 +17,19 @@ const rootReducer = (state = initState, action) => {
       addBookModal: !bookModal,
     };
   } else if (action.type === "ADD_BOOK") {
-    console.log("added book", action.payload);
-    // return {
-    //   ...state,
-    //   books: [...state.books, action.payload],
-    // };
+    //console.log("added book", action.payload);
+    return state;
+  } else if (action.type === "ADD_BOOK_ERROR") {
+    console.log("add book error", action.err);
+    return state;
+  } else {
+    return state;
   }
+  // return {
+  //   ...state,
+  //   books: [...state.books, action.payload],
+  // };
   //console.log(state);
-  return state;
 };
 
 export default rootReducer;
