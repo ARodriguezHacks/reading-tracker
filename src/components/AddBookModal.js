@@ -52,6 +52,8 @@ class AddBookModal extends Component {
 //   };
 // };
 // Takes in the dispatch method so that we can then call it. Then whatever property we want to add to the component's props, we'll add inside the return object. In this case that property will be addBook
+
+//What exactly is the dispatch method(parameter) being passed into the mapDispatchToProps method?
 const mapDispatchToProps = (dispatch) => {
   return {
     addBook: (book) => {

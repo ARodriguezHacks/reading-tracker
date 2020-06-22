@@ -17,7 +17,7 @@ const openAddBookModal = () => {
 const addBook = (payload) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // make async call to database
-    const firestore = getFirestore(); //creates a reference to our firestore datatase
+    const firestore = getFirestore(); //creates a reference to our firestore datatase. Also the fact that its called 'getFirestore' is a giveaway that this is an asynchronous function because GET is an HTTP method for requesting info from a server.
     firestore
       .collection("books")
       .add({

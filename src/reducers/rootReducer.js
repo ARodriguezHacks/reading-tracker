@@ -1,35 +1,10 @@
-import initState from "../store/initState";
+import bookReducer from "./bookReducer";
+import { firestoreReducer } from "redux-firestore";
+import { combineReducers } from "redux";
 
-const rootReducer = (state = initState, action) => {
-  if (action.type === "DELETE_BOOK") {
-    let newBooks = state.books.filter((book) => {
-      return action.id !== book.id;
-    });
-    return {
-      ...state,
-      books: newBooks,
-    };
-  } else if (action.type === "OPEN_ADD_BOOK_MODAL") {
-    //console.log(state);
-    let bookModal = state.addBookModal;
-    return {
-      ...state,
-      addBookModal: !bookModal,
-    };
-  } else if (action.type === "ADD_BOOK") {
-    //console.log("added book", action.payload);
-    return state;
-  } else if (action.type === "ADD_BOOK_ERROR") {
-    console.log("add book error", action.err);
-    return state;
-  } else {
-    return state;
-  }
-  // return {
-  //   ...state,
-  //   books: [...state.books, action.payload],
-  // };
-  //console.log(state);
-};
+const rootReducer = combineReducers({
+  book: bookReducer,
+  firestore: firestoreReducer,
+});
 
 export default rootReducer;

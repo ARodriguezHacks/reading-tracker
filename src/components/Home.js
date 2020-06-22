@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import { openAddBookModal } from "../actions/bookActions";
 import AddBookModal from "./AddBookModal";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
 class Home extends Component {
   handleClick = () => {
@@ -38,9 +40,10 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    addBookModal: state.addBookModal,
-    books: state.books,
+    addBookModal: state.book.addBookModal,
+    books: state.firestore.ordered.books || state.book.books,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -52,4 +55,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 //Connect is a function that actually returns a higher order component. By calling connect() and it returning
 // a HOC, that HOC then is invoking and taking the Home component (which is essentially a function) as its argument
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([{ collection: "books" }])
+)(Home);
