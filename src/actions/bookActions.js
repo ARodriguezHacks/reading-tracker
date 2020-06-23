@@ -15,7 +15,7 @@ const openAddBookModal = () => {
 // the addBook action will be using thunk, which is middleware which in this case will make an async call to a database. So instead of returning an object like other Redux actions with a type property, this addBook action will return a function with two parameters: the first one will be a dispatch function and a the second a getState function. The dispatch function will be the action (like addBook) that will take in as a parameter the action object which at its minimum needs a type property.
 
 const addBook = (payload) => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
+  return (dispatch, getState, { getFirestore }) => {
     // make async call to database
     const firestore = getFirestore(); //creates a reference to our firestore datatase. Also the fact that its called 'getFirestore' is a giveaway that this is an asynchronous function because GET is an HTTP method for requesting info from a server.
     firestore

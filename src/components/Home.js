@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Divider from "@material-ui/core/Divider";
 import { openAddBookModal } from "../actions/bookActions";
 import AddBookModal from "./AddBookModal";
 import { firestoreConnect } from "react-redux-firebase";
@@ -12,13 +16,18 @@ class Home extends Component {
   };
 
   render() {
+    console.log(this.props);
     const { books } = this.props;
-    const bookList = books.length ? (
+    const bookList = books ? (
       books.map((book) => {
         return (
           <div key={book.id}>
-            <h4>{book.title}</h4>
-            <h5>{book.author}</h5>
+            <ListItem>
+              <h4>{book.title}</h4>
+              <br />
+              <small>{book.author}</small>
+            </ListItem>
+            <Divider />
           </div>
         );
       })
@@ -26,15 +35,19 @@ class Home extends Component {
       <div>Reading List empty</div>
     );
     return (
-      <div>
-        <h2>BookList</h2>
-        <Button variant="contained" onClick={this.handleClick}>
-          Add Book
-        </Button>
-        {bookList}
+      <Grid container>
+        <Grid item xs={12}>
+          <h2>BookList</h2>
+          <Button variant="contained" onClick={this.handleClick}>
+            Add Book
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <List>{bookList}</List>
+        </Grid>
         <hr />
         {this.props.addBookModal ? <AddBookModal /> : null}
-      </div>
+      </Grid>
     );
   }
 }
@@ -43,7 +56,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     addBookModal: state.book.addBookModal,
-    books: state.firestore.ordered.books || state.book.books,
+    books: state.firestore.ordered.books,
   };
 };
 const mapDispatchToProps = (dispatch) => {
