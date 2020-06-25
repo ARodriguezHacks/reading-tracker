@@ -16,7 +16,6 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.props);
     const { books } = this.props;
     const bookList = books ? (
       books.map((book) => {
