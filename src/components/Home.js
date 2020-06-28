@@ -52,7 +52,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  //console.log(state);
   return {
     addBookModal: state.book.addBookModal,
     books: state.firestore.ordered.books,

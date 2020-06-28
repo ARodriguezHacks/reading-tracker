@@ -4,6 +4,8 @@ const initState = {
     title: "",
     author: "",
   },
+  loginModal: false,
+  signUpModal: false,
 };
 
 export default initState;
