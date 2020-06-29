@@ -1,15 +1,15 @@
 const signIn = (credentials) => {
-  return (dipatch, getState, { getFirebase }) => {
+  return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
 
     firebase
       .auth()
-      .signInWithEmailAndPasswrd(credentials.email, credentials.password)
+      .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then(() => {
-        dispatchEvent({ type: "LOGIN_SUCCESS" });
+        dispatch({ type: "LOGIN_SUCCESS" });
       })
       .catch((err) => {
-        dispatchEvent({ type: "LOGIN_ERROR", err });
+        dispatch({ type: "LOGIN_ERROR", err });
       });
   };
 };

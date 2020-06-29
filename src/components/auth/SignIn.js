@@ -10,19 +10,22 @@ class SignIn extends Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.targe.value,
+      [e.target.id]: e.target.value,
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Log in");
+    this.props.signIn(this.state);
   };
 
   render() {
+    const { authError } = this.props;
+    //console.log(this.state);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          {authError ? <p style={{ color: "red" }}>{authError}</p> : null}
           <h5>Sign In</h5>
           <div className="email">
             <label htmlFor="email">Email</label>
@@ -41,10 +44,16 @@ class SignIn extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     signIn: (creds) => dispatch(signIn(creds)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

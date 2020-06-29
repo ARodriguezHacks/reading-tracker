@@ -4,6 +4,7 @@ const initState = {
     title: "",
     author: "",
   },
+  authError: null,
   loginModal: false,
   signUpModal: false,
 };

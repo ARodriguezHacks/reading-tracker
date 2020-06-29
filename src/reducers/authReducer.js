@@ -1,11 +1,14 @@
-const initState = {
-  authError: null,
-};
+import initState from "../store/initState";
+// const initState = {
+//   authError: null,
+//   loginModal: false,
+//   signUpModal: false,
+// };
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case "LOGIN_ERROR":
-      console.log("login success");
+      console.log("login failed");
       return {
         ...state,
         authError: "Login failed",
@@ -13,7 +16,6 @@ const authReducer = (state = initState, action) => {
     case "LOGIN_SUCCESS":
       console.log("login success");
       return {
-        ...state,
         authError: null,
       };
     case "OPEN_LOGIN_MODAL":
