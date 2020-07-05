@@ -14,6 +14,19 @@ const signIn = (credentials) => {
   };
 };
 
+const signOut = () => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        dispatch({ type: "SIGNOUT_SUCCESS" });
+      });
+  };
+};
+
 const openLoginModal = () => {
   return {
     type: "OPEN_LOGIN_MODAL",
@@ -26,4 +39,4 @@ const openSignUpModal = () => {
   };
 };
 
-export { signIn, openLoginModal, openSignUpModal };
+export { signIn, signOut, openLoginModal, openSignUpModal };

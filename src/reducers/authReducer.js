@@ -1,9 +1,4 @@
 import initState from "../store/initState";
-// const initState = {
-//   authError: null,
-//   loginModal: false,
-//   signUpModal: false,
-// };
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
@@ -32,6 +27,9 @@ const authReducer = (state = initState, action) => {
         ...state,
         signUpModal: !signUpModal,
       };
+    case "SIGNOUT_SUCCESS":
+      console.log("signout success");
+      return state;
     default:
       return state;
   }

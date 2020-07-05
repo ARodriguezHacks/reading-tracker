@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
@@ -20,31 +21,28 @@ class Home extends Component {
     const bookList = books ? (
       books.map((book) => {
         return (
-          <div key={book.id}>
-            <ListItem>
+          <Grid item xs={12} sm={6} lg={4} key={book.id}>
+            <Paper>
               <h4>{book.title}</h4>
               <br />
               <small>{book.author}</small>
-            </ListItem>
+            </Paper>
             <Divider />
-          </div>
+          </Grid>
         );
       })
     ) : (
       <div>Reading List empty</div>
     );
     return (
-      <Grid container>
+      <Grid container spacing={3}>
         <Grid item xs={12}>
           <h2>BookList</h2>
           <Button variant="contained" onClick={this.handleClick}>
             Add Book
           </Button>
         </Grid>
-        <Grid item xs={12}>
-          <List>{bookList}</List>
-        </Grid>
-        <hr />
+        {bookList}
         {this.props.addBookModal ? <AddBookModal /> : null}
       </Grid>
     );
