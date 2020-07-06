@@ -25,3 +25,57 @@ body {
 nav.nav-row > * {
   margin-right: 10px;
 }
+
+.menu-mobile {
+  background-color: lightgreen;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 30rem;
+  z-index: 1;
+  animation-name: slideOpenMobileNav;
+  animation-duration: 2s;
+}
+
+/* .menu-mobile {
+  animation-name: slideCloseMobileNav;
+  animation-duration: 2s;
+} */
+
+.close-mobile-menu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+@keyframes slideOpenMobileNav {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 30rem;
+  }
+}
+
+@keyframes slideCloseMobileNav {
+  0% {
+    width: 30rem;
+  }
+  100% {
+    width: 0%;
+  }
+}
+/* Tablet Styles */
+@media (min-width: 600px) {
+  .hamburger-menu-mobile {
+    display: none;
+  }
+}
+
+/* Desktop Styles */
+/* @media (min-width: 1200px) {
+  .hamburger-menu-mobile {
+    display: none;
+  }
+} */

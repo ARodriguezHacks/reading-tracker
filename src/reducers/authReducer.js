@@ -27,6 +27,12 @@ const authReducer = (state = initState, action) => {
         ...state,
         signUpModal: !signUpModal,
       };
+    case "OPEN_MOBILE_SIDE_MENU":
+      let mobileSideMenu = state.mobileSideMenu;
+      return {
+        ...state,
+        mobileSideMenu: !mobileSideMenu,
+      };
     case "SIGNOUT_SUCCESS":
       console.log("signout success");
       return state;

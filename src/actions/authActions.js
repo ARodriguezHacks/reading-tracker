@@ -39,4 +39,10 @@ const openSignUpModal = () => {
   };
 };
 
-export { signIn, signOut, openLoginModal, openSignUpModal };
+const openMobileSideMenu = () => {
+  return {
+    type: "OPEN_MOBILE_SIDE_MENU",
+  };
+};
+
+export { signIn, signOut, openLoginModal, openSignUpModal, openMobileSideMenu };

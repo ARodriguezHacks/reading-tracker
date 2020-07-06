@@ -7,6 +7,7 @@ const initState = {
   authError: null,
   loginModal: false,
   signUpModal: false,
+  mobileSideMenu: false,
 };
 
 export default initState;
