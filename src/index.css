@@ -12,9 +12,16 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-/* .grid-wrapper {
-  display: grid;
-} */
 .book-container {
   margin-top: 100px;
+}
+.nav-row {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
+  background-color: cornflowerblue;
+}
+
+nav.nav-row > * {
+  margin-right: 10px;
 }

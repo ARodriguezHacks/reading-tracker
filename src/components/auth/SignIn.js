@@ -21,7 +21,6 @@ class SignIn extends Component {
 
   render() {
     const { authError } = this.props;
-    //console.log(this.state);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
