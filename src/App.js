@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Container from "@material-ui/core/Container";
 
@@ -11,6 +12,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
         </Switch>
       </Container>
     </BrowserRouter>

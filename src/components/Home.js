@@ -35,7 +35,6 @@ class Home extends Component {
     return (
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <h2>BookList</h2>
           <Button variant="contained" onClick={this.handleClick}>
             Add Book
           </Button>
