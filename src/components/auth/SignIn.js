@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn } from "../../actions/authActions";
+import Button from "@material-ui/core/Button";
 
 class SignIn extends Component {
   state = {
@@ -21,6 +22,7 @@ class SignIn extends Component {
 
   render() {
     const { authError } = this.props;
+    console.log(this.props);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -35,7 +37,7 @@ class SignIn extends Component {
             <input type="password" id="password" onChange={this.handleChange} />
           </div>
           <div className="submit-btn">
-            <button>Log In</button>
+            <button type="submit">Log In</button>
           </div>
         </form>
       </div>

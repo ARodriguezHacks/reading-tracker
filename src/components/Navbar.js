@@ -10,7 +10,7 @@ import {
   // openSignUpModal,
   openMobileSideMenu,
 } from "../actions/authActions";
-//import SignedInLinks from "./SignedInLinks";
+import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import SignIn from "./auth/SignIn";
 
@@ -33,7 +33,7 @@ class Navbar extends Component {
           <div className="logo">
             <Link to="/">BookList</Link>
           </div>
-          {/* <SignedInLinks /> */}
+          <SignedInLinks />
           <SignedOutLinks />
         </nav>
         {this.props.mobileSideMenu ? (
@@ -59,7 +59,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => {
-  //console.log(state);
+  console.log(state);
   return {
     loginModal: state.auth.loginModal,
     signUpModal: state.auth.signUpModal,
