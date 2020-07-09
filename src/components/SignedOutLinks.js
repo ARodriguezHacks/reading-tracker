@@ -14,7 +14,6 @@ class SignedOutLinks extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="links">
         <ul>

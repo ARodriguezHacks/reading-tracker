@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn } from "../../actions/authActions";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
 
 class SignIn extends Component {
   state = {
@@ -22,7 +22,6 @@ class SignIn extends Component {
 
   render() {
     const { authError } = this.props;
-    console.log(this.props);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

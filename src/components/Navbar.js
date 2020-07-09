@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-// import Button from "@material-ui/core/Button";
-// import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import { connect } from "react-redux";
-import {
-  // openLoginModal,
-  // openSignUpModal,
-  openMobileSideMenu,
-} from "../actions/authActions";
+import { openMobileSideMenu } from "../actions/authActions";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import SignIn from "./auth/SignIn";
@@ -20,7 +14,8 @@ class Navbar extends Component {
   };
 
   render() {
-    console.log(this.props);
+    const { auth } = this.props;
+    const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
     return (
       <>
         <nav className="nav-row">
@@ -33,15 +28,13 @@ class Navbar extends Component {
           <div className="logo">
             <Link to="/">BookList</Link>
           </div>
-          <SignedInLinks />
-          <SignedOutLinks />
+          {links}
         </nav>
         {this.props.mobileSideMenu ? (
           <div className="menu-mobile">
             <div className="close-mobile-menu">
               <CloseIcon onClick={this.handleMobileSideMenu}></CloseIcon>
             </div>
-
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -59,8 +52,8 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
+    auth: state.firebase.auth,
     loginModal: state.auth.loginModal,
     signUpModal: state.auth.signUpModal,
     mobileSideMenu: state.auth.mobileSideMenu,

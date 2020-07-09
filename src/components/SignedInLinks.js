@@ -9,7 +9,7 @@ import { signOut } from "../actions/authActions";
 
 const SignedInLinks = (props) => {
   return (
-    <div>
+    <div className="links">
       <ul>
         <li>
           <Button variant="contained" size="medium" onClick={props.signOut}>
