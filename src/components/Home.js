@@ -8,6 +8,7 @@ import { openAddBookModal } from "../actions/bookActions";
 import AddBookModal from "./AddBookModal";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import { Redirect } from "react-router-dom";
 
 class Home extends Component {
   handleClick = () => {
@@ -15,7 +16,9 @@ class Home extends Component {
   };
 
   render() {
-    const { books } = this.props;
+    const { books, auth } = this.props;
+    if (!auth.uid) return <Redirect to="/" />;
+
     const bookList = books ? (
       books.map((book) => {
         return (
@@ -51,6 +54,7 @@ const mapStateToProps = (state) => {
   return {
     addBookModal: state.book.addBookModal,
     books: state.firestore.ordered.books,
+    auth: state.firebase.auth,
   };
 };
 const mapDispatchToProps = (dispatch) => {

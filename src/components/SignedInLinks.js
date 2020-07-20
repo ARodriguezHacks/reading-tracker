@@ -12,12 +12,17 @@ const SignedInLinks = (props) => {
     <div className="links">
       <ul>
         <li>
+          <Button variant="contained" size="medium">
+            <NavLink to="/about">About</NavLink>
+          </Button>
+        </li>
+        <li>
           <Button variant="contained" size="medium" onClick={props.signOut}>
             Log Out
           </Button>
         </li>
         <li>
-          <NavLink to="/">
+          <NavLink to="/home">
             <Avatar>H</Avatar>
           </NavLink>
         </li>

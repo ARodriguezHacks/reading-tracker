@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { openLoginModal, openSignUpModal } from "../actions/authActions";
 import { connect } from "react-redux";
@@ -19,7 +19,7 @@ class SignedOutLinks extends Component {
         <ul>
           <li>
             <Button variant="contained" size="medium">
-              <Link to="/about">About</Link>
+              <NavLink to="/about">About</NavLink>
             </Button>
           </li>
           <li>

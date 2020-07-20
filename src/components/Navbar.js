@@ -15,6 +15,7 @@ class Navbar extends Component {
 
   render() {
     const { auth } = this.props;
+    console.log(auth);
     const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
     return (
       <>
@@ -26,7 +27,7 @@ class Navbar extends Component {
             <MenuIcon fontSize="large"></MenuIcon>
           </div>
           <div className="logo">
-            <Link to="/">BookList</Link>
+            <Link to={auth.uid ? "/home" : "/"}>BookList</Link>
           </div>
           {links}
         </nav>

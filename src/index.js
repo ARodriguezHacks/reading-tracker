@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware, compose } from "redux";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import rootReducer from "./reducers/rootReducer";
 import thunk from "redux-thunk"; //allows async code in redux ?
 import {
@@ -12,7 +12,11 @@ import {
   getFirestore,
   createFirestoreInstance,
 } from "redux-firestore";
-import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
+import {
+  ReactReduxFirebaseProvider,
+  getFirebase,
+  isLoaded,
+} from "react-redux-firebase";
 import fbConfig from "./config/fbConfig";
 import firebase from "firebase/app";
 
@@ -29,12 +33,23 @@ const rrfProps = {
   config: fbConfig,
   dispatch: store.dispatch,
   createFirestoreInstance,
+  userProfile: "users",
+  presence: "presence",
+  sessions: "sessions",
 };
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector((state) => state.firebase.auth);
+  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
+  return children;
+}
 
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <App />
+      <AuthIsLoaded>
+        <App />
+      </AuthIsLoaded>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById("root")
