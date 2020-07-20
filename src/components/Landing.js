@@ -1,6 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-const Landing = () => {
+const Landing = (props) => {
+  // const { auth } = props;
+  if (props.auth.uid) return <Redirect to="/home" />;
   return (
     <div className="landing">
       <div className="landing-welcome">
@@ -27,4 +31,10 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Landing);

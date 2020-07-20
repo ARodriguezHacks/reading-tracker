@@ -66,9 +66,40 @@ nav.nav-row > * {
 .landing > * {
   text-align: center;
   font-size: 1.25rem;
-  /* width: 90vw; */
   height: 85vh;
   border-bottom: 1rem solid rgb(20, 13, 13);
+}
+
+.landing .landing-welcome {
+  background-image: linear-gradient(
+    to right,
+    #020024 0%,
+    #097379 35%,
+    #00d4ff 100%
+  );
+}
+
+.landing .landing-feat-recs {
+  background-color: #faaca8;
+  background-image: linear-gradient(19deg, #faaca8 0%, #ddd6f3 100%);
+}
+
+.landing .landing-feat-lists {
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+}
+
+.landing .landing-feat-ratings {
+  background-image: linear-gradient(
+    95.2deg,
+    rgba(173, 252, 234, 1) 26.8%,
+    rgba(192, 229, 246, 1) 64%
+  );
 }
 
 /* @keyframes slideOpenMobileNav {
