@@ -25,7 +25,7 @@ class SignIn extends Component {
     const { authError } = this.props;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="signin-signup">
           {authError ? <p style={{ color: "red" }}>{authError}</p> : null}
           <h5>Sign In</h5>
           <div className="email">

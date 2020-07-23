@@ -102,6 +102,50 @@ nav.nav-row > * {
   );
 }
 
+.signin-signup {
+  position: absolute;
+  width: 90%;
+  background-color: cadetblue;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px #968f8f;
+}
+
+.signin-signup h5 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.signin-signup .email,
+.signin-signup .password {
+  margin: 0 auto;
+}
+
+.signin-signup label,
+.signin-signup button {
+  margin: 0 5%;
+}
+
+.signin-signup #email,
+.signin-signup #password {
+  display: block;
+  margin: 0 auto;
+}
+
+.signin-signup input {
+  line-height: 1.5rem;
+  width: 90%;
+  border-color: white;
+  border-radius: 10px;
+}
+
+.signin-signup div {
+  margin: 10px 0;
+}
+
 /* @keyframes slideOpenMobileNav {
   0% {
     width: 0%;
@@ -139,11 +183,19 @@ nav.nav-row > * {
   .links ul li:not(:last-child) {
     margin-right: 10px;
   }
+
+  .signin-signup {
+    width: 65%;
+  }
 }
 
 /* Desktop Styles */
-/* @media (min-width: 1200px) {
-  .hamburger-menu-mobile {
+@media (min-width: 1024px) {
+  /* .hamburger-menu-mobile {
     display: none;
+  } */
+  .signin-signup {
+    width: 60%;
+    max-width: 700px;
   }
-} */
+}
