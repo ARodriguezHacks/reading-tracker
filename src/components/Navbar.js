@@ -7,6 +7,7 @@ import { openMobileSideMenu } from "../actions/authActions";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import SignIn from "./auth/SignIn";
+import SignUp from "./auth/SignUp";
 
 class Navbar extends Component {
   handleMobileSideMenu = () => {
@@ -47,6 +48,7 @@ class Navbar extends Component {
           </div>
         ) : null}
         {this.props.loginModal ? <SignIn /> : null}
+        {this.props.signUpModal ? <SignUp /> : null}
       </>
     );
   }

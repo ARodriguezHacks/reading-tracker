@@ -128,7 +128,8 @@ nav.nav-row > * {
 .signin-signup button {
   margin: 0 5%;
 }
-
+.signin-signup #firstName,
+.signin-signup #lastName,
 .signin-signup #email,
 .signin-signup #password {
   display: block;
