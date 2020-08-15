@@ -4,8 +4,6 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 import { signOut } from "../actions/authActions";
-// import { openLoginModal, openSignUpModal } from "../actions/authActions";
-// import { connect } from "react-redux";
 
 const SignedInLinks = (props) => {
   return (
@@ -23,7 +21,7 @@ const SignedInLinks = (props) => {
         </li>
         <li>
           <NavLink to="/home">
-            <Avatar>H</Avatar>
+            <Avatar>{props.profile.initials}</Avatar>
           </NavLink>
         </li>
       </ul>

@@ -15,9 +15,13 @@ class Navbar extends Component {
   };
 
   render() {
-    const { auth } = this.props;
+    const { auth, profile } = this.props;
     console.log(auth);
-    const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+    const links = auth.uid ? (
+      <SignedInLinks profile={profile} />
+    ) : (
+      <SignedOutLinks />
+    );
     return (
       <>
         <nav className="nav-row">
@@ -57,6 +61,7 @@ class Navbar extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
+    profile: state.firebase.profile,
     loginModal: state.auth.loginModal,
     signUpModal: state.auth.signUpModal,
     mobileSideMenu: state.auth.mobileSideMenu,
